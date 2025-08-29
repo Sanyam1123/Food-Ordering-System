@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Foodie Ka Dhaba - Contact Us</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
+
+    <!-- Bootstrap & Icons -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"/>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+
+    <!-- Libraries -->
+    <link href="lib/lightbox/css/lightbox.min.css" rel="stylesheet">
+    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+
+    <!-- Bootstrap CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="css/style.css" rel="stylesheet">
+   <link rel="stylesheet" href="css/contacts.css">
+</head>
+
+<body>
+    <!-- Navbar Start -->
+    <div class="container-fluid fixed-top">
+        <div class="container topbar d-none d-lg-block" style="background-color: #000000;">
+            <div class="d-flex justify-content-between">
+                <div class="top-info ps-2">
+                    <small class="me-3"><i class="fas fa-map-marker-alt me-2 text-light"></i> <a href="#" class="text-white">Delhi, India</a></small>
+                    <small class="me-3"><i class="fas fa-envelope me-2 text-light"></i><a href="#" class="text-white">support@foodieexpress.com</a></small>
+                </div>
+                <div class="top-link pe-2">
+                    <a href="#" class="text-white"><small class="text-white mx-2 ">Privacy Policy</small>/</a>
+                    <a href="#" class="text-white"><small class="text-white mx-2">Terms of Use</small>/</a>
+                    <a href="#" class="text-white"><small class="text-white ms-2">Refunds</small></a>
+                </div>
+            </div>
+        </div>
+        <div class="container px-0">
+            <nav class="navbar navbar-light bg-white navbar-expand-xl">
+                <a href="index.html" class="navbar-brand"><h1 class="text-primary display-6">Foodie Ka Dhaba</h1></a>
+                <button class="navbar-toggler py-2 px-3" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+                    <span class="fa fa-bars text-primary"></span>
+                </button>
+                <div class="collapse navbar-collapse bg-white" id="navbarCollapse">
+                    <div class="navbar-nav mx-auto">
+                        <a href="index.html" class="nav-item nav-link">Home</a>
+                        <a href="restaurants.html" class="nav-item nav-link">Restaurants</a>
+                        <a href="dishes.html" class="nav-item nav-link">Dishes</a>
+                        <a href="offers.html" class="nav-item nav-link">Offers</a>
+                        <a href="contact.html" class="nav-item nav-link active">Contact</a>
+                    </div>
+                    <div class="d-flex m-3 me-0">
+  <!-- Cart -->
+ <a href="cart.html" class="position-relative me-4 my-auto">
+  <i class="fa fa-shopping-bag fa-2x"></i>
+  <span id="cart-count" class="position-absolute bg-secondary rounded-circle d-flex align-items-center justify-content-center text-dark px-1"
+        style="top:-5px; left:15px; height:20px; min-width:20px;">0</span>
+</a>
+
+
+  <!-- Profile Icon (Always Visible) -->
+  <a href="profile.html" class="my-auto me-3">
+    <i class="fas fa-user fa-2x"></i>
+  </a>
+
+  <!-- Login Button (Visible only if NOT logged in) -->
+  <a href="login.html" id="loginBtn" class="my-auto me-3">
+    <i class="fas fa-sign-in-alt fa-2x"></i> Login
+  </a>
+
+  <!-- Logout Button (Visible only if logged in) -->
+  <a href="#" id="logoutBtn" class="my-auto" style="display:none;" onclick="logout()">
+    <i class="fas fa-sign-out-alt fa-2x"></i> Logout
+  </a>
+</div>
+
+
+                </div>
+            </nav>
+        </div>
+    </div>
+    <!-- Navbar End -->
+     <!-- Success Modal -->
+<div class="modal fade" id="successModal" tabindex="-1" aria-labelledby="successModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header bg-success text-white">
+        <h5 class="modal-title" id="successModalLabel">Message Sent</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        Your message has been sent to <b>Foodie Ka Dhaba</b> support team.<br>
+        They will contact you soon.
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" data-bs-dismiss="modal">OK</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Sucess Model End-->
+    <!-- Hero Start -->
+    <div class="container-fluid page-header py-5">
+        <div class="container text-center py-5">
+            <h1 class="display-3 text-white mb-4">Contact Us</h1>
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb justify-content-center mb-0">
+                    <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                    <li class="breadcrumb-item text-white active" aria-current="page">Contact</li>
+                </ol>
+            </nav>
+        </div>
+    </div>
+    <!-- Hero End -->
+
+    <!-- Contact Section Start -->
+    <div class="container-fluid contact py-5">
+        <div class="container py-5">
+            <div class="row g-5">
+                <!-- Contact Form -->
+                <div class="col-lg-7">
+                    <h2 class="mb-4">Get in Touch</h2>
+                    <p class="mb-4">Have a question or feedback? We'd love to hear from you. Fill out the form below and we'll get back to you as soon as possible.</p>
+                    <form>
+                        <div class="row g-3">
+                            <div class="col-md-6">
+                                <div class="form-floating">
+                                    <input type="text" class="form-control" id="name" placeholder="Your Name">
+                                    <label for="name">Your Name</label>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-floating">
+                                    <input type="email" class="form-control" id="email" placeholder="Your Email">
+                                    <label for="email">Your Email</label>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="form-floating">
+                                    <input type="text" class="form-control" id="subject" placeholder="Subject">
+                                    <label for="subject">Subject</label>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="form-floating">
+                                    <textarea class="form-control" placeholder="Leave a message here" id="message" style="height: 150px"></textarea>
+                                    <label for="message">Message</label>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <button class="btn btn-primary w-100 py-3" type="submit">Send Message</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+
+                <!-- Contact Info -->
+                <div class="col-lg-5">
+                    <h2 class="mb-4">Contact Information</h2>
+                    <div class="d-flex align-items-center mb-3">
+                        <i class="fas fa-map-marker-alt fa-2x text-primary me-3"></i>
+                        <p class="mb-0">123 Street, Delhi, India</p>
+                    </div>
+                    <div class="d-flex align-items-center mb-3">
+                        <i class="fas fa-phone fa-2x text-primary me-3"></i>
+                        <p class="mb-0">+91 9876543210</p>
+                    </div>
+                    <div class="d-flex align-items-center mb-3">
+                        <i class="fas fa-envelope fa-2x text-primary me-3"></i>
+                        <p class="mb-0">support@foodiekadhaba.com</p>
+                    </div>
+                    <iframe class="w-100 rounded" style="height: 250px; border:0;" 
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d224345.83924030456!2d77.06889955!3d28.527582!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390cfd7f9b0f1d3f%3A0x123456789abcdef!2sDelhi!5e0!3m2!1sen!2sin!4v1234567890" 
+                        allowfullscreen="" loading="lazy"></iframe>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Contact Section End -->
+    <!-- Testimonial Start -->
+    <div class="container-fluid testimonial py-5">
+        <div class="container py-5">
+            <div class="text-center mb-5">
+                <h4 class="text-primary">Testimonials</h4>
+                <h1 class="display-5">What Our Customers Say</h1>
+            </div>
+            <div class="row g-4">
+                <!-- Testimonial 1 -->
+                <div class="col-lg-6 col-md-12">
+                    <div class="testimonial-item h-100">
+                        <div class="review-text">
+                            <p>“Best food delivery service! My pizza arrived hot and fresh within 20 minutes.”</p>
+                        </div>
+                        <hr>
+                        <div class="d-flex align-items-center">
+                            <img class="rounded-circle" src="img/rahul.jpg" style="width: 60px; height: 60px;" alt="Rahul Sharma">
+                            <div class="ps-3">
+                                <h6 class="mb-1">Rahul Sharma</h6>
+                                <small>Customer</small>
+                                <div class="text-warning">★★★★☆</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonial 2 -->
+                <div class="col-lg-6 col-md-12">
+                    <div class="testimonial-item h-100">
+                        <div class="review-text">
+                            <p>“Great discounts on biryani! Totally worth it. I always order from here.”</p>
+                        </div>
+                        <hr>
+                        <div class="d-flex align-items-center">
+                            <img class="rounded-circle" src="img/women.jpg" style="width: 60px; height: 60px;" alt="Neha Gupta">
+                            <div class="ps-3">
+                                <h6 class="mb-1">Neha Gupta</h6>
+                                <small>Food Lover</small>
+                                <div class="text-warning">★★★★★</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div> <!-- row end -->
+        </div>
+    </div>
+    <!-- Testimonial End -->
+    <!-- Footer Start -->
+    <div class="container-fluid bg-dark text-light footer pt-5 mt-5 wow fadeIn" data-wow-delay="0.1s">
+        <div class="container py-5">
+            <div class="row g-5">
+                <div class="col-lg-3 col-md-6">
+                    <h4 class="text-light mb-4">Foodie Ka Dhaba</h4>
+                    <p>Delivering hot & fresh meals right at your doorstep. Fast, reliable and delicious food service across Delhi.</p>
+                    <div class="d-flex pt-2">
+                        <a class="btn btn-square btn-outline-light rounded-circle me-1" href="#"><i class="fab fa-twitter"></i></a>
+                        <a class="btn btn-square btn-outline-light rounded-circle me-1" href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a class="btn btn-square btn-outline-light rounded-circle me-1" href="#"><i class="fab fa-instagram"></i></a>
+                        <a class="btn btn-square btn-outline-light rounded-circle me-0" href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <h4 class="text-light mb-4">Quick Links</h4>
+                    <a class="btn btn-link" href="index.html">Home</a>
+                    <a class="btn btn-link" href="restaurants.html">Restaurants</a>
+                    <a class="btn btn-link" href="dishes.html">Dishes</a>
+                    <a class="btn btn-link" href="offers.html">Offers</a>
+                    <a class="btn btn-link" href="contact.html">Contact Us</a>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <h4 class="text-light mb-4">Contact</h4>
+                    <p><i class="fa fa-map-marker-alt me-3"></i>123 Street, Delhi, India</p>
+                    <p><i class="fa fa-phone-alt me-3"></i>+91 9876543210</p>
+                    <p><i class="fa fa-envelope me-3"></i>support@foodieexpress.com</p>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <h4 class="text-light mb-4">Newsletter</h4>
+                    <p>Subscribe to get updates on offers & discounts.</p>
+                    <div class="position-relative mx-auto" style="max-width: 400px;">
+                        <input class="form-control border-0 w-100 py-3 ps-4 pe-5" type="text" placeholder="Your email">
+                        <button type="button" class="btn btn-secondary py-2 position-absolute top-0 end-0 mt-2 me-2">Subscribe</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid copyright">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
+                        &copy; <a href="#">Foodie ka Dhaba</a>, All Right Reserved.
+                    </div>
+                    <div class="col-md-6 text-center text-md-end">
+                        Designed By <a href="#">Sanyam</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Footer End -->
+
+
+    <!-- Back to Top -->
+    <a href="#" class="btn btn-lg btn-primary btn-lg-square rounded-circle back-to-top"><i class="bi bi-arrow-up"></i></a>
+
+    <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="lib/wow/wow.min.js"></script>
+    <script src="lib/easing/easing.min.js"></script>
+    <script src="lib/waypoints/waypoints.min.js"></script>
+    <script src="lib/counterup/counterup.min.js"></script>
+    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+    <script src="lib/lightbox/js/lightbox.min.js"></script>
+
+    <!-- Template Javascript -->
+    <script src="js/main.js"></script>
+    <script src="js/contact.js"></script>
+    <script src="js/app.js"></script>
+<script src="js/auth-shared.js"></script>
+</body>
+</html>

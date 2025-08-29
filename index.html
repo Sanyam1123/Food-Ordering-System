@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Foodie Ka Dhaba - Online Food Ordering</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
+
+    <!-- Bootstrap & Icons -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"/>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+
+    <!-- Libraries -->
+    <link href="lib/lightbox/css/lightbox.min.css" rel="stylesheet">
+    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+
+    <!-- Bootstrap CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="css/style.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/index.css">
+</head>
+
+<body>
+
+    <!-- Navbar Start -->
+    <div class="container-fluid fixed-top">
+        <div class="container topbar d-none d-lg-block" style="background-color: #000000;">
+            <div class="d-flex justify-content-between">
+                <div class="top-info ps-2">
+                    <small class="me-3"><i class="fas fa-map-marker-alt me-2 text-light"></i> <a href="#" class="text-white">Delhi, India</a></small>
+                    <small class="me-3"><i class="fas fa-envelope me-2 text-light"></i><a href="#" class="text-white">support@foodieexpress.com</a></small>
+                </div>
+                <div class="top-link pe-2">
+                    <a href="#" class="text-white"><small class="text-white mx-2 ">Privacy Policy</small>/</a>
+                    <a href="#" class="text-white"><small class="text-white mx-2">Terms of Use</small>/</a>
+                    <a href="#" class="text-white"><small class="text-white ms-2">Refunds</small></a>
+                </div>
+            </div>
+        </div>
+        <div class="container px-0">
+            <nav class="navbar navbar-light bg-white navbar-expand-xl">
+                <a href="index.html" class="navbar-brand"><h1 class="text-primary display-6">Foodie Ka Dhaba</h1></a>
+                <button class="navbar-toggler py-2 px-3" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+                    <span class="fa fa-bars text-primary"></span>
+                </button>
+                <div class="collapse navbar-collapse bg-white" id="navbarCollapse">
+                    <div class="navbar-nav mx-auto">
+                        <a href="index.html" class="nav-item nav-link active">Home</a>
+                        <a href="restaurants.html" class="nav-item nav-link">Restaurants</a>
+                        <a href="dishes.html" class="nav-item nav-link">Dishes</a>
+                        <a href="offers.html" class="nav-item nav-link">Offers</a>
+                        <a href="contact.html" class="nav-item nav-link">Contact</a>
+                    </div>
+                    <div class="d-flex m-3 me-0">
+  <!-- Cart -->
+ <a href="cart.html" class="position-relative me-4 my-auto">
+  <i class="fa fa-shopping-bag fa-2x"></i>
+  <span id="cart-count" class="position-absolute bg-secondary rounded-circle d-flex align-items-center justify-content-center text-dark px-1"
+        style="top:-5px; left:15px; height:20px; min-width:20px;">0</span>
+</a>
+
+
+  <!-- Profile Icon (Always Visible) -->
+  <a href="profile.html" class="my-auto me-3">
+    <i class="fas fa-user fa-2x"></i>
+  </a>
+
+  <!-- Login Button (Visible only if NOT logged in) -->
+  <a href="login.html" id="loginBtn" class="my-auto me-3">
+    <i class="fas fa-sign-in-alt fa-2x"></i> Login
+  </a>
+
+  <!-- Logout Button (Visible only if logged in) -->
+  <a href="#" id="logoutBtn" class="my-auto" style="display:none;" onclick="logout()">
+    <i class="fas fa-sign-out-alt fa-2x"></i> Logout
+  </a>
+</div>
+
+
+                </div>
+            </nav>
+        </div>
+    </div>
+    <a href="#" class="my-auto ms-3" onclick="logout()">
+  <i class="fas fa-sign-out-alt fa-2x"></i>
+</a>
+
+
+
+    <!-- Navbar End -->
+
+    <!-- Hero Start -->
+    <div class="container-fluid py-5 mb-5 hero-header">
+        <div class="container py-5">
+            <div class="row g-5 align-items-center">
+                <div class="col-md-12 col-lg-7">
+                    <h4 class="mb-3 text-secondary">Order From Top Restaurants</h4>
+                    <h1 class="mb-5 display-3 text-primary">Fresh, Hot & Delicious Meals</h1>
+                    <div class="position-relative mx-auto">
+                        <input class="form-control border-2 border-secondary w-75 py-3 px-4 rounded-pill"
+                               type="text" placeholder="Search for dishes or restaurants">
+                        <button type="submit"
+                                class="btn btn-primary border-2 border-secondary py-3 px-4 position-absolute rounded-pill text-white h-100"
+                                style="top: 0; right: 25%;">Search</button>
+                    </div>
+                </div>
+                <div class="col-md-12 col-lg-5">
+                    <div id="carouselId" class="carousel slide position-relative" data-bs-ride="carousel">
+                        <div class="carousel-inner" role="listbox">
+                            <div class="carousel-item active rounded">
+                                <img src="img/nonveg.png" class="img-fluid w-100 rounded" alt="Non Veg Food">
+                                <a href="#" class="btn px-4 py-2 text-white rounded">Non-Veg</a>
+                            </div>
+                            <div class="carousel-item rounded">
+                                <img src="img/veg.png" class="img-fluid w-100 rounded" alt="Veg Food">
+                                <a href="#" class="btn px-4 py-2 text-white rounded">Veg</a>
+                            </div>
+                        </div>
+                        <button class="carousel-control-prev" type="button" data-bs-target="#carouselId" data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Previous</span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#carouselId" data-bs-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Next</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Hero End -->
+<!-- Popular Dishes Start -->
+<div class="container-fluid fruite py-5">
+  <div class="container py-5">
+    <div class="tab-class text-center">
+      <div class="row g-4">
+        <div class="col-lg-4 text-start">
+          <h1>Our Popular Dishes</h1>
+        </div>
+        <div class="col-lg-8 text-end">
+          <ul class="nav nav-pills d-inline-flex text-center mb-5">
+            <li class="nav-item">
+              <button class="d-flex m-2 py-2 bg-light rounded-pill active filter-btn" data-category="all">
+                <span class="text-dark" style="width: 130px;">All</span>
+              </button>
+            </li>
+            <li class="nav-item">
+              <button class="d-flex py-2 m-2 bg-light rounded-pill filter-btn" data-category="veg">
+                <span class="text-dark" style="width: 130px;">Veg</span>
+              </button>
+            </li>
+            <li class="nav-item">
+              <button class="d-flex m-2 py-2 bg-light rounded-pill filter-btn" data-category="non-veg">
+                <span class="text-dark" style="width: 130px;">Non-Veg</span>
+              </button>
+            </li>
+           
+            <li class="nav-item">
+              <button class="d-flex m-2 py-2 bg-light rounded-pill filter-btn" data-category="desserts">
+                <span class="text-dark" style="width: 130px;">Desserts</span>
+              </button>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- All Dishes -->
+      <div class="row g-4" id="menu-container">
+
+        <!-- Dish 1 -->
+        <div class="col-md-6 col-lg-4 col-xl-3 menu-item" data-category="fast-food">
+          <div class="rounded position-relative fruite-item">
+            <div class="fruite-img">
+              <img src="img/pizza.png" class="img-fluid w-100 rounded-top" alt="Pizza">
+            </div>
+            <div class="text-white bg-secondary px-3 py-1 rounded position-absolute" style="top: 10px; left: 10px;">Fast Food</div>
+            <div class="p-4 border border-secondary border-top-0 rounded-bottom">
+              <h4>Cheese Pizza</h4>
+              <p>Hot & cheesy pizza loaded with fresh toppings.</p>
+              <div class="d-flex justify-content-between flex-lg-wrap">
+                <p class="text-dark fs-5 fw-bold mb-0">₹199</p>
+                <button class="btn border border-secondary rounded-pill px-3 text-primary js-add-to-cart"
+                  data-id="dish-101"
+                  data-name="Cheese Pizza"
+                  data-price="199"
+                  data-img="img/pizza.png">
+                  <i class="fa fa-shopping-bag me-2 text-primary"></i> Add to Cart
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Dish 2 -->
+        <div class="col-md-6 col-lg-4 col-xl-3 menu-item" data-category="non-veg">
+          <div class="rounded position-relative fruite-item">
+            <div class="fruite-img">
+              <img src="img/Biryani.png" class="img-fluid w-100 rounded-top" alt="Biryani">
+            </div>
+            <div class="text-white bg-secondary px-3 py-1 rounded position-absolute" style="top: 10px; left: 10px;">Non-Veg</div>
+            <div class="p-4 border border-secondary border-top-0 rounded-bottom">
+              <h4>Hyderabadi Biryani</h4>
+              <p>Authentic spicy biryani served with raita.</p>
+              <div class="d-flex justify-content-between flex-lg-wrap">
+                <p class="text-dark fs-5 fw-bold mb-0">₹249</p>
+                <button class="btn border border-secondary rounded-pill px-3 text-primary js-add-to-cart"
+                  data-id="dish-102"
+                  data-name="Hyderabadi Biryani"
+                  data-price="249"
+                  data-img="img/Biryani.png">
+                  <i class="fa fa-shopping-bag me-2 text-primary"></i> Add to Cart
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Dish 3 -->
+        <div class="col-md-6 col-lg-4 col-xl-3 menu-item" data-category="veg">
+          <div class="rounded position-relative fruite-item">
+            <div class="fruite-img">
+              <img src="img/Momos.png" class="img-fluid w-100 rounded-top" alt="Momos">
+            </div>
+            <div class="text-white bg-secondary px-3 py-1 rounded position-absolute" style="top: 10px; left: 10px;">Veg</div>
+            <div class="p-4 border border-secondary border-top-0 rounded-bottom">
+              <h4>Veg Momos</h4>
+              <p>Steamed dumplings with spicy chutney.</p>
+              <div class="d-flex justify-content-between flex-lg-wrap">
+                <p class="text-dark fs-5 fw-bold mb-0">₹99</p>
+                <button class="btn border border-secondary rounded-pill px-3 text-primary js-add-to-cart"
+                  data-id="dish-103"
+                  data-name="Veg Momos"
+                  data-price="99"
+                  data-img="img/Momos.png">
+                  <i class="fa fa-shopping-bag me-2 text-primary"></i> Add to Cart
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Dish 4 -->
+        <div class="col-md-6 col-lg-4 col-xl-3 menu-item" data-category="desserts">
+          <div class="rounded position-relative fruite-item">
+            <div class="fruite-img">
+              <img src="img/Chocolate Ice Cream with Mint Sprig.png" class="img-fluid w-100 rounded-top" alt="Ice Cream">
+            </div>
+            <div class="text-white bg-secondary px-3 py-1 rounded position-absolute" style="top: 10px; left: 10px;">Desserts</div>
+            <div class="p-4 border border-secondary border-top-0 rounded-bottom">
+              <h4>Chocolate Ice Cream</h4>
+              <p>Rich creamy chocolate ice cream scoop.</p>
+              <div class="d-flex justify-content-between flex-lg-wrap">
+                <p class="text-dark fs-5 fw-bold mb-0">₹120</p>
+                <button class="btn border border-secondary rounded-pill px-3 text-primary js-add-to-cart"
+                  data-id="dish-104"
+                  data-name="Chocolate Ice Cream"
+                  data-price="120"
+                  data-img="img/Chocolate Ice Cream with Mint Sprig.png">
+                  <i class="fa fa-shopping-bag me-2 text-primary"></i> Add to Cart
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div> <!-- row -->
+    </div>
+  </div>
+</div>
+<!-- Popular Dishes End -->
+    <!-- Special Offers Start -->
+    <div class="container-fluid service py-5">
+        <div class="container py-5">
+            <div class="row g-4 justify-content-center">
+                <div class="col-md-6 col-lg-4">
+                    <a href="#">
+                        <div class="service-item bg-secondary rounded border border-secondary">
+                            <img src="img/pizzza offer.png" class="img-fluid rounded-top w-100" alt="">
+                            <div class="px-4 rounded-bottom">
+                                <div class="service-content bg-primary text-center p-4 rounded">
+                                    <h5 class="text-white">Flat 50% Off</h5>
+                                    <h3 class="mb-0">On This Pizza</h3>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <a href="#">
+                        <div class="service-item bg-dark rounded border border-dark">
+                            <img src="img/burger offer.png" class="img-fluid rounded-top w-100" alt="">
+                            <div class="px-4 rounded-bottom">
+                                <div class="service-content bg-light text-center p-4 rounded">
+                                    <h5 class="text-primary">Buy 1 Get 1</h5>
+                                    <h3 class="mb-0">On Burgers</h3>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <a href="#">
+                        <div class="service-item bg-primary rounded border border-primary">
+                            <img src="img/Free Dessert with Lava Cake.png" class="img-fluid rounded-top w-100" alt="">
+                            <div class="px-4 rounded-bottom">
+                                <div class="service-content bg-secondary text-start p-4 rounded">
+                                    <h5 class="text-white">Free Dessert</h5>
+                                    <h3 class="mb-0">On Orders Above ₹500</h3>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Special Offers End -->
+
+
+    <!-- Bestseller Products Start -->
+    <div class="container-fluid py-5">
+        <div class="container py-5">
+            <div class="text-center mx-auto mb-5" style="max-width: 700px;">
+                <h1 class="display-4">Bestseller Dishes</h1>
+                <p>Most loved dishes ordered by our customers.</p>
+            </div>
+            <div class="row g-4">
+                <!-- Bestseller 1 -->
+                <div class="col-lg-6 col-xl-4">
+                    <div class="p-4 rounded bg-light">
+                        <div class="row align-items-center">
+                            <div class="col-6">
+                                <img src="img/chicken burger.png" class="img-fluid rounded-square w-100 " alt="">
+                            </div>
+                            <div class="col-6">
+                                <h5>Chicken Burger</h5>
+                                <div class="d-flex my-3">
+                                    <i class="fas fa-star text-primary"></i>
+                                    <i class="fas fa-star text-primary"></i>
+                                    <i class="fas fa-star text-primary"></i>
+                                    <i class="fas fa-star text-primary"></i>
+                                    <i class="fas fa-star"></i>
+                                </div>
+                                <h4 class="mb-3">₹149</h4>
+                               <button class="btn border border-secondary rounded-pill px-3 text-primary js-add-to-cart"
+        data-id="dish-201"
+        data-name="Paneer Tikka"
+        data-price="180"
+        data-img="img/paneer.png">
+  <i class="fa fa-shopping-bag me-2 text-primary"></i> Add to Cart
+</button>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Bestseller 2 -->
+                <div class="col-lg-6 col-xl-4">
+                    <div class="p-4 rounded bg-light">
+                        <div class="row align-items-center">
+                            <div class="col-6">
+                                <img src="img/Biryani.png" class="img-fluid rounded-square w-100 " alt="">
+                            </div>
+                            <div class="col-6">
+                                <h5>Hyderabadi Biryani</h5>
+                                <div class="d-flex my-3">
+                                    <i class="fas fa-star text-primary"></i>
+                                    <i class="fas fa-star text-primary"></i>
+                                    <i class="fas fa-star text-primary"></i>
+                                    <i class="fas fa-star text-primary"></i>
+                                    <i class="fas fa-star"></i>
+                                </div>
+                                <h4 class="mb-3">₹249</h4>
+                               <button class="btn border border-secondary rounded-pill px-3 text-primary js-add-to-cart"
+        data-id="dish-202"
+        data-name="Masala Dosa"
+        data-price="150"
+        data-img="img/dosa.png">
+  <i class="fa fa-shopping-bag me-2 text-primary"></i> Add to Cart
+</button>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Bestseller 3 -->
+                <div class="col-lg-6 col-xl-4">
+                    <div class="p-4 rounded bg-light">
+                        <div class="row align-items-center">
+                            <div class="col-6">
+                                <img src="img/pizza.png" class="img-fluid rounded-square w-100" alt="">
+                            </div>
+                            <div class="col-6">
+                                <h5>Cheese Pizza</h5>
+                                <div class="d-flex my-3">
+                                    <i class="fas fa-star text-primary"></i>
+                                    <i class="fas fa-star text-primary"></i>
+                                    <i class="fas fa-star text-primary"></i>
+                                    <i class="fas fa-star text-primary"></i>
+                                    <i class="fas fa-star"></i>
+                                </div>
+                                <h4 class="mb-3">₹199</h4>
+                                <button class="btn border border-secondary rounded-pill px-3 text-primary js-add-to-cart"
+        data-id="dish-203"
+        data-name="Gulab Jamun"
+        data-price="90"
+        data-img="img/gulabjamun.png">
+  <i class="fa fa-shopping-bag me-2 text-primary"></i> Add to Cart
+</button>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Bestseller Products End -->
+
+
+    <!-- Stats / Counters Start -->
+    <div class="container-fluid py-5">
+        <div class="container">
+            <div class="bg-light p-5 rounded">
+                <div class="row g-4 justify-content-center">
+                    <div class="col-md-6 col-lg-6 col-xl-3">
+                        <div class="counter bg-white rounded p-5">
+                            <i class="fa fa-users text-secondary"></i>
+                            <h4>Happy Customers</h4>
+                            <h1>10,000+</h1>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-6 col-xl-3">
+                        <div class="counter bg-white rounded p-5">
+                            <i class="fa fa-utensils text-secondary"></i>
+                            <h4>Dishes Served</h4>
+                            <h1>50,000+</h1>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-6 col-xl-3">
+                        <div class="counter bg-white rounded p-5">
+                            <i class="fa fa-store text-secondary"></i>
+                            <h4>Partner Restaurants</h4>
+                            <h1>250+</h1>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-6 col-xl-3">
+                        <div class="counter bg-white rounded p-5">
+                            <i class="fa fa-motorcycle text-secondary"></i>
+                            <h4>Orders Delivered</h4>
+                            <h1>80,000+</h1>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Stats / Counters End -->
+
+
+    <!-- Testimonial Start -->
+<div class="container-fluid testimonial py-5">
+    <div class="container py-5">
+        <div class="text-center mb-5">
+            <h4 class="text-primary">Testimonials</h4>
+            <h1 class="display-5">What Our Customers Say</h1>
+        </div>
+
+        <!-- Owl Carousel Start -->
+        <div class="owl-carousel testimonial-carousel">
+            
+            <!-- Testimonial 1 -->
+            <div class="testimonial-item h-100 bg-light rounded p-4">
+                <div class="review-text mb-3">
+                    <p>“Best food delivery service! My pizza arrived hot and fresh within 20 minutes.”</p>
+                </div>
+                <hr>
+                <div class="d-flex align-items-center">
+                    <img class="rounded-circle" src="img/rahul.jpg" style="width: 60px; height: 60px;" alt="Rahul Sharma">
+                    <div class="ps-3">
+                        <h6 class="mb-1">Rahul Sharma</h6>
+                        <small>Customer</small>
+                        <div class="text-warning">★★★★☆</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Testimonial 2 -->
+            <div class="testimonial-item h-100 bg-light rounded p-4">
+                <div class="review-text mb-3">
+                    <p>“Great discounts on biryani! Totally worth it. I always order from here.”</p>
+                </div>
+                <hr>
+                <div class="d-flex align-items-center">
+                    <img class="rounded-circle" src="img/women.jpg" style="width: 60px; height: 60px;" alt="Neha Gupta">
+                    <div class="ps-3">
+                        <h6 class="mb-1">Neha Gupta</h6>
+                        <small>Food Lover</small>
+                        <div class="text-warning">★★★★★</div>
+                    </div>
+                </div>
+            </div>
+
+           
+        <!-- Owl Carousel End -->
+
+    </div>
+</div>
+<!-- Testimonial End -->
+
+    <!-- Footer Start -->
+    <div class="container-fluid bg-dark text-light footer pt-5 mt-5 wow fadeIn" data-wow-delay="0.1s">
+        <div class="container py-5">
+            <div class="row g-5">
+                <div class="col-lg-3 col-md-6">
+                    <h4 class="text-light mb-4">Foodie Ka Dhaba</h4>
+                    <p>Delivering hot & fresh meals right at your doorstep. Fast, reliable and delicious food service across Delhi.</p>
+                    <div class="d-flex pt-2">
+                        <a class="btn btn-square btn-outline-light rounded-circle me-1" href="#"><i class="fab fa-twitter"></i></a>
+                        <a class="btn btn-square btn-outline-light rounded-circle me-1" href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a class="btn btn-square btn-outline-light rounded-circle me-1" href="#"><i class="fab fa-instagram"></i></a>
+                        <a class="btn btn-square btn-outline-light rounded-circle me-0" href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <h4 class="text-light mb-4">Quick Links</h4>
+                    <a class="btn btn-link" href="index.html">Home</a>
+                    <a class="btn btn-link" href="restaurants.html">Restaurants</a>
+                    <a class="btn btn-link" href="dishes.html">Dishes</a>
+                    <a class="btn btn-link" href="offers.html">Offers</a>
+                    <a class="btn btn-link" href="contact.html">Contact Us</a>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <h4 class="text-light mb-4">Contact</h4>
+                    <p><i class="fa fa-map-marker-alt me-3"></i>123 Street, Delhi, India</p>
+                    <p><i class="fa fa-phone-alt me-3"></i>+91 9876543210</p>
+                    <p><i class="fa fa-envelope me-3"></i>support@foodieexpress.com</p>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <h4 class="text-light mb-4">Newsletter</h4>
+                    <p>Subscribe to get updates on offers & discounts.</p>
+                    <div class="position-relative mx-auto" style="max-width: 400px;">
+                        <input class="form-control border-0 w-100 py-3 ps-4 pe-5" type="text" placeholder="Your email">
+                        <button type="button" class="btn btn-secondary py-2 position-absolute top-0 end-0 mt-2 me-2">Subscribe</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid copyright">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
+                        &copy; <a href="#">Foodie ka Dhaba</a>, All Right Reserved.
+                    </div>
+                    <div class="col-md-6 text-center text-md-end">
+                        Designed By <a href="#">Sanyam</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Footer End -->
+
+
+    <!-- Back to Top -->
+    <a href="#" class="btn btn-lg btn-primary btn-lg-square rounded-circle back-to-top"><i class="bi bi-arrow-up"></i></a>
+
+    <!-- Scripts -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="lib/easing/easing.min.js"></script>
+    <script src="lib/waypoints/waypoints.min.js"></script>
+    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+    <script src="lib/lightbox/js/lightbox.min.js"></script>
+
+    <!-- Template Javascript -->
+    <script src="js/main.js"></script>
+    <script src="js/index.js"></script>
+<script src="js/app.js"></script>
+<script src="js/auth-shared.js"></script>
+<script src="js/product-page.js"></script>
+</body>
+</html>

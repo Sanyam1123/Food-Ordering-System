@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>Foodie Ka Dhaba - Your Cart</title>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
+
+  <!-- Bootstrap & Icons -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"/>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+
+  <!-- Libraries -->
+  <link href="lib/lightbox/css/lightbox.min.css" rel="stylesheet">
+  <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+
+  <!-- Bootstrap CSS -->
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="css/style.css">
+  <link href="css/cart.css" rel="stylesheet">
+</head>
+
+<body>
+  <!-- Navbar Start -->
+  <div class="container-fluid fixed-top">
+    <div class="container topbar d-none d-lg-block" style="background-color: #000000;">
+      <div class="d-flex justify-content-between">
+        <div class="top-info ps-2">
+          <small class="me-3"><i class="fas fa-map-marker-alt me-2 text-light"></i>
+            <a href="#" class="text-white">Delhi, India</a></small>
+          <small class="me-3"><i class="fas fa-envelope me-2 text-light"></i>
+            <a href="#" class="text-white">support@foodiekadhaba.com</a></small>
+        </div>
+        <div class="top-link pe-2">
+          <a href="#" class="text-white"><small class="text-white mx-2 ">Privacy Policy</small>/</a>
+          <a href="#" class="text-white"><small class="text-white mx-2">Terms of Use</small>/</a>
+          <a href="#" class="text-white"><small class="text-white ms-2">Refunds</small></a>
+        </div>
+      </div>
+    </div>
+    <div class="container px-0">
+      <nav class="navbar navbar-light bg-white navbar-expand-xl">
+        <a href="index.html" class="navbar-brand"><h1 class="text-primary display-6">Foodie Ka Dhaba</h1></a>
+        <button class="navbar-toggler py-2 px-3" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+          <span class="fa fa-bars text-primary"></span>
+        </button>
+        <div class="collapse navbar-collapse bg-white" id="navbarCollapse">
+          <div class="navbar-nav mx-auto">
+            <a href="index.html" class="nav-item nav-link">Home</a>
+            <a href="restaurants.html" class="nav-item nav-link">Restaurants</a>
+            <a href="dishes.html" class="nav-item nav-link">Dishes</a>
+            <a href="offers.html" class="nav-item nav-link">Offers</a>
+            <a href="contact.html" class="nav-item nav-link">Contact</a>
+            <a href="cart.html" class="nav-item nav-link active">Cart</a>
+          </div>
+          <div class="d-flex m-3 me-0">
+            <!-- Cart -->
+            <a href="cart.html" class="position-relative me-4 my-auto">
+              <i class="fa fa-shopping-bag fa-2x"></i>
+              <span id="cart-count"
+                class="position-absolute bg-secondary rounded-circle d-flex align-items-center justify-content-center text-dark px-1"
+                style="top: -5px; left: 15px; height: 20px; min-width: 20px;">0</span>
+            </a>
+
+            <!-- Profile Icon -->
+            <a href="profile.html" class="my-auto me-3">
+              <i class="fas fa-user fa-2x"></i>
+            </a>
+
+            <!-- Login / Logout -->
+            <a href="login.html" id="loginBtn" class="my-auto me-3">
+              <i class="fas fa-sign-in-alt fa-2x"></i> Login
+            </a>
+            <a href="#" id="logoutBtn" class="my-auto" style="display:none;" onclick="logout()">
+              <i class="fas fa-sign-out-alt fa-2x"></i> Logout
+            </a>
+          </div>
+        </div>
+      </nav>
+    </div>
+  </div>
+  <!-- Navbar End -->
+
+  <!-- Page Header -->
+  <div class="container-fluid page-header py-5 mb-5"
+    style="background: linear-gradient(rgba(0,0,0,.5),rgba(0,0,0,.5)), url('img/istockphoto-1134066061-612x612.jpg') center/cover no-repeat;">
+    <div class="container text-center py-5">
+      <h1 class="display-4 text-white">Your Shopping Cart</h1>
+      <p class="text-light">Review your items before checkout</p>
+    </div>
+  </div>
+
+  <!-- Cart Section -->
+  <div class="container py-5">
+    <div class="row g-4">
+      <div class="col-lg-8">
+        <div class="table-responsive">
+          <table class="table table-bordered text-center align-middle">
+            <thead class="bg-secondary text-dark">
+              <tr>
+                <th>Image</th>
+                <th>Dish</th>
+                <th>Price</th>
+                <th>Quantity</th>
+                <th>Total</th>
+                <th>Remove</th>
+              </tr>
+            </thead>
+            <tbody id="cart-body"></tbody>
+          </table>
+          <!-- Empty cart message -->
+          <div id="cart-empty" class="alert alert-info mt-3" style="display:none;">
+            Your cart is empty. Add something tasty!
+          </div>
+        </div>
+      </div>
+
+      <!-- Cart Summary -->
+      <div class="col-lg-4">
+        <div class="card shadow p-4">
+          <h4 class="mb-3">Cart Summary</h4>
+          <div class="d-flex justify-content-between mb-2">
+            <span>Subtotal</span>
+            <span id="subtotal">₹0.00</span>
+          </div>
+          <div class="d-flex justify-content-between mb-2">
+            <span>Tax (5%)</span>
+            <span id="tax">₹0.00</span>
+          </div>
+          <div class="d-flex justify-content-between mb-2">
+            <span>Delivery</span>
+            <span id="delivery">₹0.00</span>
+          </div>
+          <hr>
+          <div class="d-flex justify-content-between fw-bold mb-3">
+            <span>Total</span>
+            <span id="total">₹0.00</span>
+          </div>
+          <button id="clear-cart" class="btn btn-outline-danger w-100 mb-2">Clear Cart</button>
+          <a href="checkout.html" class="btn btn-primary w-100 py-2">Proceed to Buy</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <div class="container-fluid bg-dark text-white-50 footer mt-5 pt-5">
+    <div class="container py-5">
+      <div class="row g-5">
+        <div class="col-lg-3 col-md-6">
+          <h5 class="text-white mb-4">Foodie Ka Dhaba</h5>
+          <p>Delicious meals delivered to your doorstep. Quality food, unbeatable taste, and speedy delivery.</p>
+        </div>
+        <div class="col-lg-3 col-md-6">
+          <h5 class="text-white mb-4">Quick Links</h5>
+          <a class="btn btn-link text-white-50" href="index.html">Home</a>
+          <a class="btn btn-link text-white-50" href="restaurants.html">Restaurants</a>
+          <a class="btn btn-link text-white-50" href="dishes.html">Dishes</a>
+          <a class="btn btn-link text-white-50" href="offers.html">Offers</a>
+          <a class="btn btn-link text-white-50" href="contact.html">Contact</a>
+        </div>
+        <div class="col-lg-3 col-md-6">
+          <h5 class="text-white mb-4">Contact Us</h5>
+          <p><i class="fa fa-map-marker-alt me-2"></i> Delhi, India</p>
+          <p><i class="fa fa-phone-alt me-2"></i> +91 9876543210</p>
+          <p><i class="fa fa-envelope me-2"></i> support@foodieexpress.com</p>
+        </div>
+        <div class="col-lg-3 col-md-6">
+          <h5 class="text-white mb-4">Newsletter</h5>
+          <p>Subscribe to get the latest deals and offers.</p>
+          <div class="position-relative">
+            <input class="form-control bg-transparent w-100 py-3 ps-4 pe-5" type="text" placeholder="Your email">
+            <button type="button" class="btn btn-primary py-2 position-absolute top-0 end-0 mt-2 me-2">SignUp</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container-fluid copyright bg-dark text-center py-3">
+      <p class="mb-0">&copy; <a href="#" class="text-white">Foodie Ka Dhaba</a>. All Rights Reserved.</p>
+    </div>
+  </div>
+
+  <!-- JS -->
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="lib/easing/easing.min.js"></script>
+  <script src="lib/waypoints/waypoints.min.js"></script>
+  <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+  <script src="lib/lightbox/js/lightbox.min.js"></script>
+
+  <!-- Custom JS -->
+  <script src="js/app.js"></script>
+  <script src="js/auth-shared.js"></script>
+ <script src="js/cart.js"></script>
+
+</body>
+</html>

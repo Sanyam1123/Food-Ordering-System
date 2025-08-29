@@ -1,0 +1,88 @@
+:root {
+    --bs-primary: #000000;   /* Red for food theme */
+    --bs-secondary: #1a5983; /* Green */
+}
+body {
+    font-family: 'Poppins', sans-serif;
+}
+
+.page-header {
+  position: relative;
+  height: 60vh;  /* jitni height chahiye utni set kar lo */
+  display: flex;
+  align-items: center;   /* vertically center karega */
+  justify-content: center; /* horizontally center karega */
+  text-align: center;
+}
+
+.page-header .container {
+  position: relative;
+  z-index: 2;
+}
+
+.page-header h1 {
+  font-size: 3rem;  /* size adjust kar sakte ho */
+  font-weight: 700;
+}
+
+.page-header p {
+  font-size: 1.2rem;
+}
+.card {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.card img {
+  height: 200px;              /* fix height for images */
+  object-fit: cover;          /* image crop hoke box fill karegi */
+}
+
+.card-body {
+  flex-grow: 1;               /* body ko expand karega */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* content ko evenly space karega */
+}
+
+.dishes-carousel .card {
+  height: 350px;            /* sabhi slides ki height same */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.dishes-carousel .card img {
+  height: 200px;            /* image fix height */
+  object-fit: cover;        /* crop karke adjust karega */
+}
+.card {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.card-body {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; 
+  /* title, desc, price evenly align */
+}
+
+.card-body h5 {
+  min-height: 50px;   /* title ki jagah fix hogi */
+}
+
+.card-body p.card-text {
+  min-height: 40px;   /* description ke liye fix jagah */
+}
+
+.owl-carousel .card {
+  margin: 10px;      /* thoda spacing */
+}
+.owl-carousel .owl-stage {
+  display: flex;
+  align-items: self-end; /* sabhi slides ek hi line me same height */
+}

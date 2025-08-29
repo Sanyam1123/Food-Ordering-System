@@ -1,0 +1,7 @@
+:root {
+    --bs-primary: #000000;   /* Red for food theme */
+    --bs-secondary: #1a5983; /* Green */
+}
+body {
+    font-family: 'Poppins', sans-serif;
+}

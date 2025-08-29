@@ -1,0 +1,4 @@
+.navbar .nav-link:hover,
+.navbar .nav-link.active {
+    color: #000000 !important;
+}

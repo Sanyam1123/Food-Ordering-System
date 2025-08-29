@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Foodie Ka Dhaba - Checkout</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Bootstrap -->
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <link href="css/style.css" rel="stylesheet">
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"/>
+  <link rel="stylesheet" href="css/checkout.css">
+  
+</head>
+<body>
+
+<div class="container py-5">
+  <div class="checkout-card">
+    <h2 class="mb-4"><i class="fas fa-credit-card me-2"></i> Checkout</h2>
+
+    <!-- Order Summary -->
+    <div class="mb-4">
+      <h4>Order Summary</h4>
+      <ul>
+        <li>Cheese Pizza - ₹199</li>
+        <li>Veg Momos - ₹99</li>
+        <li>Hyderabadi Biryani - ₹249</li>
+      </ul>
+      <h5>Total: <strong>₹547</strong></h5>
+    </div>
+    <!-- Payment Form -->
+    <form id="paymentForm">
+      <h4 class="mb-3">Select Payment Method</h4>
+
+      <!-- UPI -->
+      <div class="form-check mb-2">
+        <input class="form-check-input" type="radio" name="paymentMethod" id="upi" value="UPI" required>
+        <label class="form-check-label" for="upi">
+          <i class="fas fa-mobile-alt me-2"></i> UPI (Google Pay, PhonePe, Paytm)
+        </label>
+      </div>
+
+      <!-- Card -->
+      <div class="form-check mb-2">
+        <input class="form-check-input" type="radio" name="paymentMethod" id="card" value="Card">
+        <label class="form-check-label" for="card">
+          <i class="fas fa-credit-card me-2"></i> Debit / Credit Card
+        </label>
+      </div>
+
+      <!-- Net Banking -->
+      <div class="form-check mb-2">
+        <input class="form-check-input" type="radio" name="paymentMethod" id="netbanking" value="Net Banking">
+        <label class="form-check-label" for="netbanking">
+          <i class="fas fa-university me-2"></i> Net Banking
+        </label>
+      </div>
+
+      <!-- Cash on Delivery -->
+      <div class="form-check mb-4">
+        <input class="form-check-input" type="radio" name="paymentMethod" id="cod" value="COD">
+        <label class="form-check-label" for="cod">
+          <i class="fas fa-money-bill-wave me-2"></i> Cash on Delivery
+        </label>
+      </div>
+      <!-- Proceed Button -->
+      <button type="submit" class="btn btn-success w-100">
+        Proceed to Pay
+      </button>
+    </form>
+
+    <!-- Success Message -->
+    <div class="success-message" id="successMessage">
+      <i class="fas fa-check-circle fa-3x mb-3"></i>
+      <h2>Payment Successful!</h2>
+      <p>Thank you for ordering from <strong>Foodie Ka Dhaba</strong>. <br>
+      Your delicious food is on the way 🚚🍴</p>
+      <a href="index.html" class="btn btn-primary mt-3">Back to Home</a>
+    </div>
+  </div>
+</div>
+
+<!-- Bootstrap JS -->
+<script src="js/bootstrap.bundle.min.js"></script>
+<script src="js/checkout.js"></script>
+<script src="js/app.js"></script>
+<script src="js/auth-shared.js"></script>
+</body>
+</html>

@@ -1,0 +1,25 @@
+body {
+  font-family: 'Poppins', sans-serif;
+  background: url("../img/background.png") no-repeat center center fixed;
+  background-size: cover;
+}
+.checkout-card {
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0px 4px 15px rgba(0,0,0,0.2);
+  margin-top: 30px;
+}
+.success-message {
+  display: none;
+  text-align: center;
+  padding: 30px;
+  background: #e6ffee;
+  border: 2px solid #00b33c;
+  border-radius: 10px;
+  margin-top: 20px;
+}
+.success-message h2 {
+  color: #00b33c;
+  font-weight: 700;
+}

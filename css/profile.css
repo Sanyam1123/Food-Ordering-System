@@ -1,0 +1,43 @@
+/* Profile Page Styling */
+.profile-card {
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 15px;
+}
+
+.profile-card img {
+  border: 4px solid #007bff;
+}
+
+.card {
+  border-radius: 15px;
+}
+
+.card-body h5 {
+  color: #1a5983;   /* secondary color */
+}
+
+.list-group-item {
+  font-size: 15px;
+}
+
+.list-group-item .badge {
+  font-size: 12px;
+  padding: 5px 10px;
+  border-radius: 12px;
+}
+
+/* Background overlay for readability */
+body {
+  background-attachment: fixed;
+  background-size: cover;
+  position: relative;
+}
+
+body::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0,0,0,0.3); /* dark overlay */
+  z-index: -1;
+}

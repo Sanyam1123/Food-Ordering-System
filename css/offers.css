@@ -1,0 +1,27 @@
+/* css/style.css - custom styles moved from the HTML */
+:root {
+--bs-primary: #000000; /* Red for food theme (kept as original value) */
+--bs-secondary: #1a5983; /* Accent */
+}
+body {
+font-family: 'Poppins', sans-serif;
+}
+
+
+/* small helpers copied from original template to keep look consistent */
+.topbar { background-color: #000000; }
+.text-primary { color: green; }
+.footer { background: #111; }
+
+
+/* add any additional customizations that lived in your original css/style.css file */
+
+
+/* adjust card images so they fit nicely */
+.card-img-top { object-fit: cover; height: 220px; }
+
+
+/* responsive tweaks if needed */
+@media (max-width: 576px) {
+.card-img-top { height: 180px; }
+}
